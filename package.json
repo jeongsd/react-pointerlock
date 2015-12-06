@@ -1,7 +1,7 @@
 {
   "name": "react-pointerlock",
-  "version": "1.0.0",
-  "description": "react pointer lock API",
+  "version": "1.0.1",
+  "description": "Pointerlock API for react.js",
   "main": "dist/react-pointerlock.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,6 +18,17 @@
     "url": "https://github.com/jeongsd/react-pointerlock/issues"
   },
   "homepage": "https://github.com/jeongsd/react-pointerlock#readme",
+  "keywords": [
+    "point",
+    "lock",
+    "react",
+    "MouseEvent",
+    "point lock",
+    "mouse lock",
+    "point lock API"
+    "PointLock",
+    "PointLockAPI"
+  ],
   "dependencies": {
     "classnames": "^2.2.1",
     "react": "^0.14.3",

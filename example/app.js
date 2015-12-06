@@ -15,7 +15,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.refs.pointerLock.requestPointerLock();
     this.canvasDraw();
   }
 
@@ -28,20 +27,20 @@ class App extends Component {
     let x = this.state.x + movement.x;
     let y = this.state.y + movement.y;
 
-    if (x > canvas.width + 20) {
+    if (x > canvas.clientWidth + 20) {
       x = 0;
     }
 
-    if (y > canvas.height + 20) {
+    if (y > canvas.clientHeight + 20) {
       y = 0;
     }
 
     if (x < -15) {
-      x = canvas.width;
+      x = canvas.clientWidth;
     }
 
     if (y < -15) {
-      y = canvas.height;
+      y = canvas.clientHeight;
     }
 
     this.setState({ x: x, y: y });
@@ -51,7 +50,8 @@ class App extends Component {
     const canvas = ReactDOM.findDOMNode(this.refs.canvas);
     const context = canvas.getContext('2d');
 
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = 'black';
+    context.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
     context.fillStyle = '#F9F903';
     context.beginPath();
@@ -69,9 +69,7 @@ class App extends Component {
       <h2>Y Position: { this.state.y }</h2>
 
       <PointerLock
-        className="lock-wrapper"
-        onMouseMove={ this.onMouseMove }
-        ref="pointerLock">
+        onMouseMove={ this.onMouseMove } >
         <canvas
           width="640px"
           height="369px"

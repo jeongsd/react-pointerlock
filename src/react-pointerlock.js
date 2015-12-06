@@ -9,10 +9,18 @@ import './react-pointerlock.css';
 const propTypes = {
   className: PropTypes.string,
   onMouseMove: PropTypes.func,
+  blockElement: PropTypes.node,
   // onError: PropTypes.func,
 };
 
 const defaultProps = {
+  blockElement: (
+    <div className="PointerLocker-blocker">
+      <div className="PointerLocker-instructions">
+        Click to View
+      </div>
+    </div>
+  ),
 };
 
 class PointerLocker extends Component {
@@ -109,21 +117,14 @@ class PointerLocker extends Component {
     const className = classnames('PointerLocker', this.props.className);
     let blocker;
 
-
     if (!this.state.isPointLock) {
-      blocker = (
-        <div className="PointerLocker-blocker">
-          <div className="PointerLocker-instructions">
-            Click to View
-          </div>
-        </div>
-      );
+      blocker = this.props.blockElement;
     }
 
     return (
       <div
         ref="pointerLocker"
-        className={className}
+        className={ className }
         onMouseMove={
           this.state.isPointLock ? this.onMouseMove : null
         }

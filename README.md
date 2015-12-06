@@ -6,17 +6,17 @@ example code using [MDN Pointer Lock API](https://developer.mozilla.org/en-US/do
 
 [![Build Status](https://travis-ci.org/jeongsd/react-pointerlock.svg?branch=master)](https://travis-ci.org/jeongsd/react-pointerlock)
 
-### installation
+## installation
 `npm install reactPointLock`
 
 
-### Component API
+## Component API
 __onMouseMove(movement, event)__
 - movement.x : movement x point
 - movement.y : movement y point
 - event : mousemove event
 
-### Example
+## Example
 ```js
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -107,7 +107,7 @@ ReactDOM.render(
 );
 ```
 
-### Contribute
+## Contribute
 
 ```bash
 npm install

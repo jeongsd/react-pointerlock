@@ -1,0 +1,19 @@
+.PointerLocker {
+  position: relative;
+}
+
+.PointerLocker-blocker {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.PointerLocker-instructions {
+  color: white;
+  font-size: 30px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}

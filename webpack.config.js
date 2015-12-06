@@ -1,4 +1,6 @@
+/* eslint-disable no-var */
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   resolve: {
@@ -9,9 +11,21 @@ module.exports = {
   },
   entry: './src/react-pointerlock.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'react-pointerlock.js',
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"',
+      __DEV__: false,
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+    }),
+  ],
   module: {
     loaders: [
       {

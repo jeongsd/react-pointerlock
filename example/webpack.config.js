@@ -9,7 +9,7 @@ module.exports = {
     './app.js',
   ],
   output: {
-    path: path.join(__dirname, '/build'),
+    path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
   },
   resolve: {
@@ -31,5 +31,5 @@ module.exports = {
         loader: 'babel',
       },
     ],
-  }
+  },
 };

@@ -121,8 +121,6 @@ class PointerLocker extends React.Component {
       blocker = this.props.blockElement;
     }
 
-    console.log();
-
     return (
       <div
         ref="pointerLocker"

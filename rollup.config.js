@@ -1,4 +1,3 @@
-import { rollup } from 'rollup';
 import replace from 'rollup-plugin-replace';
 import babel from 'rollup-plugin-babel';
 import npm from 'rollup-plugin-npm';
@@ -7,7 +6,11 @@ import commonjs from 'rollup-plugin-commonjs';
 export default {
   entry: './src/react-pointerlock.js',
   dest: 'dist/react-pointerlock.js',
-  format: 'cjs',
+  format: 'umd',
+  globals: {
+    react: 'React',
+  },
+  moduleName: 'PointerLocker',
   plugins: [
     babel({
       babelrc: false,

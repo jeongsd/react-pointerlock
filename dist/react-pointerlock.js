@@ -1,319 +1,321 @@
-'use strict';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('react/lib/ReactDOM')) :
+	typeof define === 'function' && define.amd ? define(['react', 'react/lib/ReactDOM'], factory) :
+	global.PointerLocker = factory(global.React,global.require$$0);
+}(this, function (React,require$$0) { 'use strict';
 
-var React = require('react');
-React = 'default' in React ? React['default'] : React;
-var require$$0 = require('react/lib/ReactDOM');
-require$$0 = 'default' in require$$0 ? require$$0['default'] : require$$0;
+	React = 'default' in React ? React['default'] : React;
+	require$$0 = 'default' in require$$0 ? require$$0['default'] : require$$0;
 
-var babelHelpers = {};
+	var babelHelpers = {};
 
-babelHelpers.typeof = function (obj) {
-  return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj;
-};
+	babelHelpers.typeof = function (obj) {
+	  return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj;
+	};
 
-babelHelpers.classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
+	babelHelpers.classCallCheck = function (instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	};
 
-babelHelpers.createClass = (function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
+	babelHelpers.createClass = (function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];
+	      descriptor.enumerable = descriptor.enumerable || false;
+	      descriptor.configurable = true;
+	      if ("value" in descriptor) descriptor.writable = true;
+	      Object.defineProperty(target, descriptor.key, descriptor);
+	    }
+	  }
 
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-})();
+	  return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+	    if (staticProps) defineProperties(Constructor, staticProps);
+	    return Constructor;
+	  };
+	})();
 
-babelHelpers.inherits = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-  }
+	babelHelpers.inherits = function (subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+	  }
 
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-};
+	  subClass.prototype = Object.create(superClass && superClass.prototype, {
+	    constructor: {
+	      value: subClass,
+	      enumerable: false,
+	      writable: true,
+	      configurable: true
+	    }
+	  });
+	  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	};
 
-babelHelpers.possibleConstructorReturn = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
+	babelHelpers.possibleConstructorReturn = function (self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }
 
-  return call && (typeof call === "object" || typeof call === "function") ? call : self;
-};
+	  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+	};
 
-babelHelpers;
-var index$1 = (function (module) {
-var exports = module.exports;
-/*!
-  Copyright (c) 2015 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
+	babelHelpers;
+	var index$1 = (function (module) {
+	var exports = module.exports;
+	/*!
+	  Copyright (c) 2015 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
 
-(function () {
-	'use strict';
+	(function () {
+		'use strict';
 
-	var hasOwn = ({}).hasOwnProperty;
+		var hasOwn = ({}).hasOwnProperty;
 
-	function classNames() {
-		var classes = '';
+		function classNames() {
+			var classes = '';
 
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
 
-			var argType = typeof arg === 'undefined' ? 'undefined' : babelHelpers.typeof(arg);
+				var argType = typeof arg === 'undefined' ? 'undefined' : babelHelpers.typeof(arg);
 
-			if (argType === 'string' || argType === 'number') {
-				classes += ' ' + arg;
-			} else if (Array.isArray(arg)) {
-				classes += ' ' + classNames.apply(null, arg);
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes += ' ' + key;
+				if (argType === 'string' || argType === 'number') {
+					classes += ' ' + arg;
+				} else if (Array.isArray(arg)) {
+					classes += ' ' + classNames.apply(null, arg);
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes += ' ' + key;
+						}
 					}
 				}
 			}
+
+			return classes.substr(1);
 		}
 
-		return classes.substr(1);
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (typeof define === 'function' && babelHelpers.typeof(define.amd) === 'object' && define.amd) {
+			// register as 'classnames', consistent with npm package name
+			define('classnames', [], function () {
+				return classNames;
+			});
+		} else {
+			window.classNames = classNames;
+		}
+	})();
+	return module.exports;
+	})({exports:{}});
+
+	var pointerLockElement = undefined;
+	var pointerLockChange = undefined;
+	var requestPointerLock = undefined;
+	var exitPointerLock = undefined;
+	var pointerLockError = undefined;
+	var movementX = undefined;
+	var movementY = undefined;
+
+	if ('pointerLockElement' in document) {
+	  pointerLockElement = 'pointerLockElement';
+	  pointerLockChange = 'pointerlockchange';
+	  requestPointerLock = 'requestPointerLock';
+	  exitPointerLock = 'exitPointerLock';
+	  pointerLockError = 'pointerlockerror';
+	  movementX = 'movementX';
+	  movementY = 'movementY';
+	} else if ('mozPointerLockElement' in document) {
+	  pointerLockElement = 'mozPointerLockElement';
+	  pointerLockChange = 'mozpointerlockchange';
+	  requestPointerLock = 'mozRequestPointerLock';
+	  exitPointerLock = 'mozExitPointerLock';
+	  pointerLockError = 'mozpointerlockerror';
+	  movementX = 'mozMovementX';
+	  movementY = 'mozMovementY';
+	} else if ('webkitPointerLockElement' in document) {
+	  pointerLockElement = 'webkitPointerLockElement';
+	  pointerLockChange = 'webkitpointerlockchange';
+	  requestPointerLock = 'webkitRequestPointerLock';
+	  exitPointerLock = 'webkitExitPointerLock';
+	  pointerLockError = 'webkitpointerlockerror';
+	  movementX = 'webkitMovementX';
+	  movementY = 'webkitMovementY';
 	}
 
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
-	} else if (typeof define === 'function' && babelHelpers.typeof(define.amd) === 'object' && define.amd) {
-		// register as 'classnames', consistent with npm package name
-		define('classnames', [], function () {
-			return classNames;
-		});
-	} else {
-		window.classNames = classNames;
-	}
-})();
-return module.exports;
-})({exports:{}});
+	var POINTERLOCK_ELEMENT = pointerLockElement;
+	var POINTERLOCK_CHANGE = pointerLockChange;
+	var REQUEST_POINTERLOCK = requestPointerLock;
+	var EXIT_POINTERLOCK = exitPointerLock;
+	var MOVEMENT_X = movementX;
+	var MOVEMENT_Y = movementY;
 
-var pointerLockElement = undefined;
-var pointerLockChange = undefined;
-var requestPointerLock = undefined;
-var exitPointerLock = undefined;
-var pointerLockError = undefined;
-var movementX = undefined;
-var movementY = undefined;
+	var index = (function (module) {
+	var exports = module.exports;
+	'use strict';
 
-if ('pointerLockElement' in document) {
-  pointerLockElement = 'pointerLockElement';
-  pointerLockChange = 'pointerlockchange';
-  requestPointerLock = 'requestPointerLock';
-  exitPointerLock = 'exitPointerLock';
-  pointerLockError = 'pointerlockerror';
-  movementX = 'movementX';
-  movementY = 'movementY';
-} else if ('mozPointerLockElement' in document) {
-  pointerLockElement = 'mozPointerLockElement';
-  pointerLockChange = 'mozpointerlockchange';
-  requestPointerLock = 'mozRequestPointerLock';
-  exitPointerLock = 'mozExitPointerLock';
-  pointerLockError = 'mozpointerlockerror';
-  movementX = 'mozMovementX';
-  movementY = 'mozMovementY';
-} else if ('webkitPointerLockElement' in document) {
-  pointerLockElement = 'webkitPointerLockElement';
-  pointerLockChange = 'webkitpointerlockchange';
-  requestPointerLock = 'webkitRequestPointerLock';
-  exitPointerLock = 'webkitExitPointerLock';
-  pointerLockError = 'webkitpointerlockerror';
-  movementX = 'webkitMovementX';
-  movementY = 'webkitMovementY';
-}
+	module.exports = require$$0;
+	return module.exports;
+	})({exports:{}});
 
-var POINTERLOCK_ELEMENT = pointerLockElement;
-var POINTERLOCK_CHANGE = pointerLockChange;
-var REQUEST_POINTERLOCK = requestPointerLock;
-var EXIT_POINTERLOCK = exitPointerLock;
-var MOVEMENT_X = movementX;
-var MOVEMENT_Y = movementY;
+	// import './react-pointerlock.css';
 
-var index = (function (module) {
-var exports = module.exports;
-'use strict';
+	var propTypes = {
+	  className: React.PropTypes.string,
+	  onMouseMove: React.PropTypes.func,
+	  blockElement: React.PropTypes.node
+	};
 
-module.exports = require$$0;
-return module.exports;
-})({exports:{}});
+	// onError: PropTypes.func,
+	var defaultProps = {
+	  blockElement: React.createElement(
+	    'div',
+	    { className: 'PointerLocker-blocker' },
+	    React.createElement(
+	      'div',
+	      { className: 'PointerLocker-instructions' },
+	      'Click to View'
+	    )
+	  )
+	};
 
-// import './react-pointerlock.css';
+	var PointerLocker = (function (_React$Component) {
+	  babelHelpers.inherits(PointerLocker, _React$Component);
 
-var propTypes = {
-  className: React.PropTypes.string,
-  onMouseMove: React.PropTypes.func,
-  blockElement: React.PropTypes.node
-};
+	  function PointerLocker() {
+	    babelHelpers.classCallCheck(this, PointerLocker);
 
-// onError: PropTypes.func,
-var defaultProps = {
-  blockElement: React.createElement(
-    'div',
-    { className: 'PointerLocker-blocker' },
-    React.createElement(
-      'div',
-      { className: 'PointerLocker-instructions' },
-      'Click to View'
-    )
-  )
-};
+	    var _this = babelHelpers.possibleConstructorReturn(this, Object.getPrototypeOf(PointerLocker).call(this));
 
-var PointerLocker = (function (_React$Component) {
-  babelHelpers.inherits(PointerLocker, _React$Component);
+	    _this.state = {
+	      isPointLock: false
+	    };
 
-  function PointerLocker() {
-    babelHelpers.classCallCheck(this, PointerLocker);
+	    _this.requestPointerLock = _this.requestPointerLock.bind(_this);
+	    _this.onPointLockChange = _this.onPointLockChange.bind(_this);
+	    _this.onMouseMove = _this.onMouseMove.bind(_this);
+	    _this.onPointLockError = _this.onPointLockError.bind(_this);
+	    _this.onClick = _this.onClick.bind(_this);
+	    return _this;
+	  }
 
-    var _this = babelHelpers.possibleConstructorReturn(this, Object.getPrototypeOf(PointerLocker).call(this));
+	  babelHelpers.createClass(PointerLocker, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      if (this.caniuse()) {
+	        document.addEventListener(POINTERLOCK_CHANGE, this.onPointLockChange, false);
+	        // document.addEventListener(POINTERLOCK_ERROR, this.onPointLockError, false);
+	      }
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      if (this.caniuse()) {
+	        document.removeEventListener(POINTERLOCK_CHANGE, this.onPointLockChange, false);
+	        // document.removeEventListener(POINTERLOCK_ERROR, this.onPointLockError, false);
+	      }
+	    }
+	  }, {
+	    key: 'onPointLockChange',
+	    value: function onPointLockChange() {
+	      var currentPointLockElement = document[POINTERLOCK_ELEMENT];
+	      var pointLockElement = index.findDOMNode(this.refs.pointerLocker);
 
-    _this.state = {
-      isPointLock: false
-    };
+	      if (currentPointLockElement === pointLockElement) {
+	        // react onMouseMove event doesn't extension to mouse events
+	        // https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API#extensions
+	        document.addEventListener('mousemove', this.onMouseMove, false);
+	        return this.setState({
+	          isPointLock: true
+	        });
+	      }
 
-    _this.requestPointerLock = _this.requestPointerLock.bind(_this);
-    _this.onPointLockChange = _this.onPointLockChange.bind(_this);
-    _this.onMouseMove = _this.onMouseMove.bind(_this);
-    _this.onPointLockError = _this.onPointLockError.bind(_this);
-    _this.onClick = _this.onClick.bind(_this);
-    return _this;
-  }
+	      document.removeEventListener('mousemove', this.onMouseMove);
+	      this.setState({
+	        isPointLock: false
+	      });
+	    }
+	  }, {
+	    key: 'onClick',
+	    value: function onClick() {
+	      this.requestPointerLock();
+	    }
+	  }, {
+	    key: 'onMouseMove',
+	    value: function onMouseMove(event) {
+	      if (this.props.onMouseMove) {
+	        var movement = {
+	          x: event[MOVEMENT_X] || 0,
+	          y: event[MOVEMENT_Y] || 0
+	        };
 
-  babelHelpers.createClass(PointerLocker, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      if (this.caniuse()) {
-        document.addEventListener(POINTERLOCK_CHANGE, this.onPointLockChange, false);
-        // document.addEventListener(POINTERLOCK_ERROR, this.onPointLockError, false);
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      if (this.caniuse()) {
-        document.removeEventListener(POINTERLOCK_CHANGE, this.onPointLockChange, false);
-        // document.removeEventListener(POINTERLOCK_ERROR, this.onPointLockError, false);
-      }
-    }
-  }, {
-    key: 'onPointLockChange',
-    value: function onPointLockChange() {
-      var currentPointLockElement = document[POINTERLOCK_ELEMENT];
-      var pointLockElement = index.findDOMNode(this.refs.pointerLocker);
+	        this.props.onMouseMove(movement, event);
+	      }
+	    }
+	  }, {
+	    key: 'onPointLockError',
+	    value: function onPointLockError(error) {
+	      console.error('requestPointerLock or exitPointerLock calling failed', error);
 
-      if (currentPointLockElement === pointLockElement) {
-        // react onMouseMove event doesn't extension to mouse events
-        // https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API#extensions
-        document.addEventListener('mousemove', this.onMouseMove, false);
-        return this.setState({
-          isPointLock: true
-        });
-      }
+	      if (this.props.onError) {
+	        this.props.onError(error);
+	      }
+	    }
+	  }, {
+	    key: 'exitPointLock',
+	    value: function exitPointLock() {
+	      document[EXIT_POINTERLOCK]();
+	    }
+	  }, {
+	    key: 'requestPointerLock',
+	    value: function requestPointerLock() {
+	      var pointerLocker = index.findDOMNode(this.refs.pointerLocker);
 
-      document.removeEventListener('mousemove', this.onMouseMove);
-      this.setState({
-        isPointLock: false
-      });
-    }
-  }, {
-    key: 'onClick',
-    value: function onClick() {
-      this.requestPointerLock();
-    }
-  }, {
-    key: 'onMouseMove',
-    value: function onMouseMove(event) {
-      if (this.props.onMouseMove) {
-        var movement = {
-          x: event[MOVEMENT_X] || 0,
-          y: event[MOVEMENT_Y] || 0
-        };
+	      pointerLocker[REQUEST_POINTERLOCK]();
+	    }
+	  }, {
+	    key: 'caniuse',
+	    value: function caniuse() {
+	      if (POINTERLOCK_ELEMENT) {
+	        return true;
+	      }
 
-        this.props.onMouseMove(movement, event);
-      }
-    }
-  }, {
-    key: 'onPointLockError',
-    value: function onPointLockError(error) {
-      console.error('requestPointerLock or exitPointerLock calling failed', error);
+	      return false;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var className = index$1('PointerLocker', this.props.className);
+	      var blocker = undefined;
 
-      if (this.props.onError) {
-        this.props.onError(error);
-      }
-    }
-  }, {
-    key: 'exitPointLock',
-    value: function exitPointLock() {
-      document[EXIT_POINTERLOCK]();
-    }
-  }, {
-    key: 'requestPointerLock',
-    value: function requestPointerLock() {
-      var pointerLocker = index.findDOMNode(this.refs.pointerLocker);
+	      if (!this.state.isPointLock) {
+	        blocker = this.props.blockElement;
+	      }
 
-      pointerLocker[REQUEST_POINTERLOCK]();
-    }
-  }, {
-    key: 'caniuse',
-    value: function caniuse() {
-      if (POINTERLOCK_ELEMENT) {
-        return true;
-      }
+	      return React.createElement(
+	        'div',
+	        {
+	          ref: 'pointerLocker',
+	          className: className,
+	          onMouseMove: this.state.isPointLock ? this.onMouseMove : null,
+	          onClick: this.requestPointerLock },
+	        blocker,
+	        this.props.children
+	      );
+	    }
+	  }]);
+	  return PointerLocker;
+	})(React.Component);
 
-      return false;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var className = index$1('PointerLocker', this.props.className);
-      var blocker = undefined;
+	PointerLocker.propTypes = propTypes;
+	PointerLocker.defaultProps = defaultProps;
 
-      if (!this.state.isPointLock) {
-        blocker = this.props.blockElement;
-      }
+	return PointerLocker;
 
-      console.log();
-
-      return React.createElement(
-        'div',
-        {
-          ref: 'pointerLocker',
-          className: className,
-          onMouseMove: this.state.isPointLock ? this.onMouseMove : null,
-          onClick: this.requestPointerLock },
-        blocker,
-        this.props.children
-      );
-    }
-  }]);
-  return PointerLocker;
-})(React.Component);
-
-PointerLocker.propTypes = propTypes;
-PointerLocker.defaultProps = defaultProps;
-
-module.exports = PointerLocker;
+}));

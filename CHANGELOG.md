@@ -1,5 +1,8 @@
 #Change Logs
 
+## 1.1.2
+- [bbffd9c](../../commit/bbffd9c) build format change commonjs -> [umd](https://github.com/rollup/rollup/wiki/JavaScript-API#format)  
+
 ## 1.1.1 - Monday, 07 December 13 : 10 : 19 (GMT 00:00)
 - [faf122d](../../commit/faf122d) build script fix
 - [faf122d](../../commit/faf122d) badge using [shields](https://github.com/badges/shields)

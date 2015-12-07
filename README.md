@@ -4,8 +4,12 @@ The __Pointer Lock API__ (formerly called Mouse Lock API) provides input methods
 
 example code using [MDN Pointer Lock API](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API)
 
-[![npm version](https://badge.fury.io/js/react-pointerlock.svg)](https://badge.fury.io/js/react-pointerlock)
-[![Build Status](https://travis-ci.org/jeongsd/react-pointerlock.svg?branch=master)](https://travis-ci.org/jeongsd/react-pointerlock)
+# Example
+
+[![npm download](https://img.shields.io/npm/dt/react-pointerlock.svg)](https://www.npmjs.com/package/react-pointerlock)
+[![npm version](https://img.shields.io/npm/v/react-pointerlock.svg)](https://www.npmjs.com/package/react-pointerlock)
+[![Build Status](https://img.shields.io/travis/jeongsd/react-pointerlock.svg)](https://travis-ci.org/jeongsd/react-pointerlock)
+[![Licenese](https://img.shields.io/npm/l/react-pointerlock.svg)](./LICENSE)
 
 ## installation
 `npm install reactPointLock`

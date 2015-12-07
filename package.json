@@ -1,15 +1,16 @@
 {
   "name": "react-pointerlock",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Pointerlock API for react.js",
   "main": "dist/react-pointerlock.js",
+  "jsnext:main": "src/react-pointerlock.js",
   "files": [
     "dist/react-pointerlock.css"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel-node --debug --presets es2015 -- example/server.js --debug",
-    "build": "NODE_ENV=production webpack -p"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",

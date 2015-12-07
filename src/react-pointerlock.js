@@ -1,15 +1,15 @@
-import React, { PropTypes, Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDom from 'react-dom';
 import classnames from 'classnames';
 import { POINTERLOCK_ELEMENT, POINTERLOCK_CHANGE,
   REQUEST_POINTERLOCK, EXIT_POINTERLOCK, POINTERLOCK_ERROR,
   MOVEMENT_X, MOVEMENT_Y } from './helper/pointLock.js';
-import './react-pointerlock.css';
+// import './react-pointerlock.css';
 
 const propTypes = {
-  className: PropTypes.string,
-  onMouseMove: PropTypes.func,
-  blockElement: PropTypes.node,
+  className: React.PropTypes.string,
+  onMouseMove: React.PropTypes.func,
+  blockElement: React.PropTypes.node,
   // onError: PropTypes.func,
 };
 
@@ -23,7 +23,7 @@ const defaultProps = {
   ),
 };
 
-class PointerLocker extends Component {
+class PointerLocker extends React.Component {
 
   constructor() {
     super();
@@ -55,7 +55,7 @@ class PointerLocker extends Component {
 
   onPointLockChange() {
     const currentPointLockElement = document[POINTERLOCK_ELEMENT];
-    const pointLockElement = ReactDOM.findDOMNode(this.refs.pointerLocker);
+    const pointLockElement = ReactDom.findDOMNode(this.refs.pointerLocker);
 
     if (currentPointLockElement === pointLockElement) {
       // react onMouseMove event doesn't extension to mouse events
@@ -100,7 +100,7 @@ class PointerLocker extends Component {
   }
 
   requestPointerLock() {
-    const pointerLocker = ReactDOM.findDOMNode(this.refs.pointerLocker);
+    const pointerLocker = ReactDom.findDOMNode(this.refs.pointerLocker);
 
     pointerLocker[REQUEST_POINTERLOCK]();
   }
@@ -120,6 +120,8 @@ class PointerLocker extends Component {
     if (!this.state.isPointLock) {
       blocker = this.props.blockElement;
     }
+
+    console.log();
 
     return (
       <div

@@ -1,15 +1,13 @@
 # reactPointLock
 
-The __Pointer Lock API__ (formerly called Mouse Lock API) provides input methods based on the movement of the mouse over time (i.e., deltas), not just the absolute position of the mouse cursor in the viewport. It gives you access to raw mouse movement, locks the target of mouse events to a single element, eliminates limits on how far mouse movement can go in a single direction, and removes the cursor from view. It is ideal for first person 3D games, for example.
-
-example code using [MDN Pointer Lock API](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API)
-
-# Example
-
 [![npm download](https://img.shields.io/npm/dt/react-pointerlock.svg)](https://www.npmjs.com/package/react-pointerlock)
 [![npm version](https://img.shields.io/npm/v/react-pointerlock.svg)](https://www.npmjs.com/package/react-pointerlock)
 [![Build Status](https://img.shields.io/travis/jeongsd/react-pointerlock.svg)](https://travis-ci.org/jeongsd/react-pointerlock)
 [![Licenese](https://img.shields.io/npm/l/react-pointerlock.svg)](./LICENSE)
+
+The __Pointer Lock API__ (formerly called Mouse Lock API) provides input methods based on the movement of the mouse over time (i.e., deltas), not just the absolute position of the mouse cursor in the viewport. It gives you access to raw mouse movement, locks the target of mouse events to a single element, eliminates limits on how far mouse movement can go in a single direction, and removes the cursor from view. It is ideal for first person 3D games, for example.
+
+example code using [MDN Pointer Lock API](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API)
 
 ## installation
 `npm install reactPointLock`

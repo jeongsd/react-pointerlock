@@ -1,3 +1,5 @@
+@import '~react-pointerlock/dist/react-pointerlock.css';
+
 .app {
   width: 80%;
   margin: 0 auto;

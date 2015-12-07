@@ -14,7 +14,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-pointerlock': path.join(__dirname, '..', 'src/react-pointerlock.js'),
+      'react-pointerlock': path.join(__dirname, '..'),
     },
   },
   plugins: [

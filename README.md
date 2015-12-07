@@ -118,3 +118,9 @@ npm start
 ```bash
 npm build
 ```
+
+
+## TODO
+- test
+- css build using babel.js
+- minifly

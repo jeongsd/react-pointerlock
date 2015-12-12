@@ -1,5 +1,9 @@
 #Change Logs
 
+
+## 1.1.3 - Saturday, 12 December 07 : 35 : 39 (GMT 00:00)
+- [7bd6566](../../commit/7bd6566) add onPointLock, onExitPointLock
+
 ## 1.1.2
 - [bbffd9c](../../commit/bbffd9c) build format change commonjs -> [umd](https://github.com/rollup/rollup/wiki/JavaScript-API#format)  
 

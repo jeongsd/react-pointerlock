@@ -19,6 +19,12 @@ __onMouseMove(movement, event)__
 - movement.y : movement y point
 - event : mousemove event
 
+__onPointLock()__
+- when activate pointerlock
+
+__onExitPointLock()__
+- when user exit pointerlock ex) pressing ESC key, etc.
+
 ## Example
 ```js
 import React, { Component } from 'react';

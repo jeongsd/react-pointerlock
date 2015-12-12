@@ -3,6 +3,7 @@
 .app {
   width: 80%;
   margin: 0 auto;
+  font-family: Hack, monospace;
 }
 
 canvas {

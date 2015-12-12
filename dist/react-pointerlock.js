@@ -62,7 +62,7 @@
 	};
 
 	babelHelpers;
-	var index$1 = (function (module) {
+	var index = (function (module) {
 	var exports = module.exports;
 	/*!
 	  Copyright (c) 2015 Jed Watson.
@@ -156,7 +156,7 @@
 	var MOVEMENT_X = movementX;
 	var MOVEMENT_Y = movementY;
 
-	var index = (function (module) {
+	var index$1 = (function (module) {
 	var exports = module.exports;
 	'use strict';
 
@@ -169,6 +169,8 @@
 	var propTypes = {
 	  className: React.PropTypes.string,
 	  onMouseMove: React.PropTypes.func,
+	  onPointLock: React.PropTypes.func,
+	  onExitPointLock: React.PropTypes.func,
 	  blockElement: React.PropTypes.node
 	};
 
@@ -214,6 +216,17 @@
 	      }
 	    }
 	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate(prevProps, prevState) {
+	      if (this.state.isPointLock !== prevState.isPointLock) {
+	        if (this.state.isPointLock) {
+	          this.props.onPointLock();
+	        } else {
+	          this.props.onExitPointLock();
+	        }
+	      }
+	    }
+	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      if (this.caniuse()) {
@@ -225,7 +238,7 @@
 	    key: 'onPointLockChange',
 	    value: function onPointLockChange() {
 	      var currentPointLockElement = document[POINTERLOCK_ELEMENT];
-	      var pointLockElement = index.findDOMNode(this.refs.pointerLocker);
+	      var pointLockElement = index$1.findDOMNode(this.refs.pointerLocker);
 
 	      if (currentPointLockElement === pointLockElement) {
 	        // react onMouseMove event doesn't extension to mouse events
@@ -275,7 +288,7 @@
 	  }, {
 	    key: 'requestPointerLock',
 	    value: function requestPointerLock() {
-	      var pointerLocker = index.findDOMNode(this.refs.pointerLocker);
+	      var pointerLocker = index$1.findDOMNode(this.refs.pointerLocker);
 
 	      pointerLocker[REQUEST_POINTERLOCK]();
 	    }
@@ -291,7 +304,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var className = index$1('PointerLocker', this.props.className);
+	      var className = index('PointerLocker', this.props.className);
 	      var blocker = undefined;
 
 	      if (!this.state.isPointLock) {

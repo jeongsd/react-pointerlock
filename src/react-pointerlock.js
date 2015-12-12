@@ -9,6 +9,8 @@ import { POINTERLOCK_ELEMENT, POINTERLOCK_CHANGE,
 const propTypes = {
   className: React.PropTypes.string,
   onMouseMove: React.PropTypes.func,
+  onPointLock: React.PropTypes.func,
+  onExitPointLock: React.PropTypes.func,
   blockElement: React.PropTypes.node,
   // onError: PropTypes.func,
 };
@@ -43,6 +45,16 @@ class PointerLocker extends React.Component {
     if (this.caniuse()) {
       document.addEventListener(POINTERLOCK_CHANGE, this.onPointLockChange, false);
       // document.addEventListener(POINTERLOCK_ERROR, this.onPointLockError, false);
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.isPointLock !== prevState.isPointLock ) {
+      if (this.state.isPointLock) {
+        this.props.onPointLock();
+      } else {
+        this.props.onExitPointLock();
+      }
     }
   }
 
